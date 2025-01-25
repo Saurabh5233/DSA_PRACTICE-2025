@@ -23,6 +23,7 @@ public class QueueAtSchool {
             t--;
         }
         System.out.println(str.toString());
+        sc.close();
 
     }
 }

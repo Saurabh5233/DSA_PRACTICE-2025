@@ -37,6 +37,7 @@ public class Word {
             }
             
         }
+        sc.close();
 
         System.out.println(ans.toString());
 
