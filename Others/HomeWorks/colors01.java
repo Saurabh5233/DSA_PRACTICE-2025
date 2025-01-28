@@ -2,32 +2,27 @@ package Others.HomeWorks;
 
 import java.util.Scanner;
 
-public class colors01 {
+public class Colors01 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        String colors = sc.nextLine();
+        String str = sc.nextLine();
+        StringBuilder colors = new StringBuilder(str);
         int countTime = 0;
-        StringBuilder correctOrder = new StringBuilder(colors);
-
-        int i= 0, j = correctOrder.length()-1;
-        while (i< j) {
-            if(correctOrder.charAt(i) == '0' && correctOrder.charAt(j) == '1'){
-                char temp = correctOrder.charAt(j);
-                correctOrder.setCharAt(j, correctOrder.charAt(i));
-                correctOrder.setCharAt(i, temp);
-                countTime++;
-                
+        while (true) {
+            boolean swapped = false;
+            for(int i = 1;i< colors.length();i++){
+                if(colors.charAt(i-1) == '0' && colors.charAt(i)== '1'){
+                    colors.setCharAt(i-1, '1');
+                    colors.setCharAt(i, '0');
+                    swapped = true;
+                }
             }
-            else if(correctOrder.charAt(i) == '0'){
-                j--;
+            if(!swapped){
+                break;
             }
-            else if(correctOrder.charAt(i) == '0'){
-                j--;
-            }
-            i++;
-            j--;
+            countTime++;
         }
-        System.out.println(correctOrder);
-        System.out.println(" answer : " + countTime*2);
+        System.out.println(colors);
+        System.out.println(" answer : " + countTime);
     }
 }

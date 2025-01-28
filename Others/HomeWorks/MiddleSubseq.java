@@ -1,3 +1,5 @@
+/*
+
 package Others.HomeWorks;
 
 import java.util.ArrayList;
@@ -52,3 +54,52 @@ public class MiddleSubseq {
 }
 
 
+
+*/
+
+
+
+
+///////////////////////////////////////////////////////////////////////////////
+package Others.HomeWorks;
+
+import java.util.Scanner;
+
+public class MiddleSubseq {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] seq = new int[n];
+        for (int i = 0; i < n; i++) {
+            seq[i] = sc.nextInt();
+        }
+
+        System.out.println(findMiddleValue(seq));
+    }
+
+    public static int findMiddleValue(int[] seq) {
+        int n = seq.length;
+        if (n < 3) {
+            return -1; // Not possible to form a subsequence of size 3
+        }
+
+        int leftMin = Integer.MAX_VALUE;
+        int middleMax = Integer.MIN_VALUE;
+        int minSum = Integer.MAX_VALUE;
+
+        for (int i = 0; i < n; i++) {
+            if (seq[i] > middleMax) {
+                // Update the middleMax if seq[i] is valid
+                middleMax = seq[i];
+            } else if (seq[i] < middleMax && seq[i] > leftMin) {
+                // Calculate the sum of the valid subsequence
+                minSum = Math.min(minSum, leftMin + seq[i] + middleMax);
+            }
+
+            // Update the smallest element so far
+            leftMin = Math.min(leftMin, seq[i]);
+        }
+
+        return minSum == Integer.MAX_VALUE ? -1 : minSum;
+    }
+}
