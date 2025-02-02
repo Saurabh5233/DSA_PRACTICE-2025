@@ -30,7 +30,7 @@ class Solution{
 
             String letters = keypad.get(digits.charAt(i));
             for(int j = 0;j< letters.length();j++){
-                solve(digits, result, answer, keypad, i+1);
+                solve(digits, result, answer+letters.charAt(j), keypad, i+1);
             }
         }
     }
