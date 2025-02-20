@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class Permutations {
     public static void main(String[] args) {
         // solve("", "abc");
-        ArrayList<String> answer = solve("", "abc");
+        ArrayList<String> answer = solve("", "12345678");
         System.out.println(answer);
     }/*
     private static void solve(String p, String up){
