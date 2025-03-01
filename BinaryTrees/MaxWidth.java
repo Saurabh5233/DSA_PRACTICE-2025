@@ -1,3 +1,4 @@
+
 import java.util.*;
 
 public class MaxWidth {
@@ -9,6 +10,15 @@ public class MaxWidth {
         root.right = new TreeNode(2);
         // root.right.left = new TreeNode(15);
         root.right.right = new TreeNode(9);
+
+public class MaxWidth {
+    public static void main(String[] args) {
+        TreeNode root = new TreeNode(3);
+        root.left = new TreeNode(9);
+        root.right = new TreeNode(20);
+        root.right.left = new TreeNode(15);
+        root.right.right = new TreeNode(7);
+
         
         
 
@@ -31,6 +41,7 @@ class TreeNode{
 class Solution{
     public int widthOfBinaryTree(TreeNode root){
         int maxWidth = 0;
+
         Queue<Object[]> q = new LinkedList<>(); 
         if(root == null) return maxWidth;
         q.offer(new Object[]{root, 0});
@@ -49,5 +60,6 @@ class Solution{
 
         } 
         return maxWidth;
+
     }
 }
