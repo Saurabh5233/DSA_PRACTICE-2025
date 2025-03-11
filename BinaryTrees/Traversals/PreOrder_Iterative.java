@@ -36,8 +36,8 @@ class Solution{
         while (!stk.isEmpty()) {
             TreeNode curr = stk.pop();
             pre.add(curr.val);
-            if(curr.left != null) stk.push(curr.left);
             if(curr.right != null) stk.push(curr.right);
+            if(curr.left != null) stk.push(curr.left);
         }
 
         return pre;
